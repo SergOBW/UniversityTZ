@@ -1,16 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ExitButton : MonoBehaviour
+namespace UI
 {
-    void Start()
+    public class ExitButton : MonoBehaviour
     {
-        Button btn = GetComponent<Button>();
-        btn.onClick.AddListener(ExitApp);
-    }
+        void Start()
+        {
+            Button btn = GetComponent<Button>();
+            btn.onClick.AddListener(ExitApp);
+        }
 
-    void ExitApp()
-    {
-        Application.Quit();
+        void ExitApp()
+        {
+            Application.Quit();
+        }
     }
 }

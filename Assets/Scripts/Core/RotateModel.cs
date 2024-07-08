@@ -1,28 +1,31 @@
 using UnityEngine;
 
-public class RotateModel : MonoBehaviour
+namespace Core
 {
-    [SerializeField]private float rotationSpeed = 100.0f;
-    
-    private bool _isRotating;
-
-    void Update()
+    public class RotateModel : MonoBehaviour
     {
-        if (Input.GetMouseButtonDown(2))
-        {
-            _isRotating = true;
-        }
-        if (Input.GetMouseButtonUp(2))
-        {
-            _isRotating = false;
-        }
+        [SerializeField]private float rotationSpeed = 100.0f;
+    
+        private bool _isRotating;
 
-        if (_isRotating)
+        void Update()
         {
-            float h = rotationSpeed * Input.GetAxis("Mouse X") * Time.deltaTime;
-            float v = rotationSpeed * Input.GetAxis("Mouse Y") * Time.deltaTime;
-            transform.Rotate(Vector3.up, h, Space.World);
-            transform.Rotate(Vector3.right, v, Space.Self);
+            if (Input.GetMouseButtonDown(2))
+            {
+                _isRotating = true;
+            }
+            if (Input.GetMouseButtonUp(2))
+            {
+                _isRotating = false;
+            }
+
+            if (_isRotating)
+            {
+                float h = rotationSpeed * Input.GetAxis("Mouse X") * Time.deltaTime;
+                float v = rotationSpeed * Input.GetAxis("Mouse Y") * Time.deltaTime;
+                transform.Rotate(Vector3.up, h, Space.World);
+                transform.Rotate(Vector3.right, v, Space.Self);
+            }
         }
     }
 }
